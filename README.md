@@ -1,8 +1,16 @@
 # CodeMate AI
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/ankitkumar100201020-crypto/codeMate-Ai)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ankitkumar100201020-crypto/codeMate-Ai)
 
 A modern AI coding assistant starter project with React + Vite and FastAPI + Google Gemini.
+
+---
+
+## Live Deployments
+- **Backend API (Render)**: [https://codemate-ai-api.onrender.com](https://codemate-ai-api.onrender.com)
+- **API Health Check**: [https://codemate-ai-api.onrender.com/health](https://codemate-ai-api.onrender.com/health)
+- **Interactive Swagger Docs**: [https://codemate-ai-api.onrender.com/docs](https://codemate-ai-api.onrender.com/docs)
 
 ---
 
