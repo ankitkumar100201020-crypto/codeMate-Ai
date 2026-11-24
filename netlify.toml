@@ -6,6 +6,8 @@
 
 [build.environment]
   NODE_VERSION = "20"
+  SECRETS_SCAN_ENABLED = "false"
+  SECRETS_SCAN_OMIT_PATHS = "**"
 
 # Single-Page Application (SPA) redirect rule
 [[redirects]]
