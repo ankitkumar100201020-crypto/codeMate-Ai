@@ -1,5 +1,7 @@
 # CodeMate AI
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/ankitkumar100201020-crypto/codeMate-Ai)
+
 A modern AI coding assistant starter project with React + Vite and FastAPI + Google Gemini.
 
 ---
