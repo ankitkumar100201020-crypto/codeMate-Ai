@@ -37,3 +37,11 @@ Open the local URL printed by Vite (usually http://localhost:5173).
 - Convert Code
 
 This is a starter app. Before public deployment, add authentication, rate limits, stricter request validation, usage quotas, and production CORS settings.
+
+## Deploy to Render
+
+1. Push this repository to GitHub and create a Blueprint in Render using `render.yaml`.
+2. During setup, provide your Gemini key for `GEMINI_API_KEY`. Keep it in Render's environment settings; never commit `backend/.env`.
+3. The Blueprint creates a backend web service and a frontend static site. If Render assigns different `onrender.com` hostnames, update `VITE_API_URL` on the frontend and `FRONTEND_ORIGIN` on the backend to the matching service URLs, then redeploy.
+
+The frontend API URL is configured at build time. The backend reads `GEMINI_API_KEY` from its environment and allows the configured `FRONTEND_ORIGIN`.

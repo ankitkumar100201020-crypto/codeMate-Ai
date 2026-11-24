@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { createRoot } from 'react-dom/client'
 import './style.css'
 
+const API_BASE_URL = (import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000').replace(/\/$/, '')
 
 const tools = [
   { id: 'chat', icon: '◉', label: 'AI Chat', prompt: '' },
@@ -51,7 +52,7 @@ function App() {
     const updated = [...chats, { role: 'user', content: userText }]
     setChats(updated); setInput(''); setBusy(true)
     try {
-      const response = await fetch('http://127.0.0.1:8000/chat', {
+      const response = await fetch(`${API_BASE_URL}/chat`, {
         method: 'POST', headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: text, mode, history: chats.slice(-8).map(m => ({ role: m.role, content: m.content })) })
       })

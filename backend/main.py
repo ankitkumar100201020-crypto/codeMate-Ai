@@ -9,9 +9,14 @@ from google import genai
 
 load_dotenv()
 app = FastAPI(title="CodeMate AI API", version="1.0.0")
+frontend_origin = os.getenv("FRONTEND_ORIGIN", "").strip().rstrip("/")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        *([frontend_origin] if frontend_origin else []),
+    ],
     allow_credentials=False,
     allow_methods=["GET", "POST"],
     allow_headers=["Content-Type"],
@@ -45,7 +50,7 @@ def health():
 @app.post("/chat")
 def chat(body: ChatRequest):
     if not client:
-        raise HTTPException(status_code=503, detail="Gemini API key is not configured. Add it to backend/.env and restart the server.")
+        raise HTTPException(status_code=503, detail="Gemini API key is not configured. Set GEMINI_API_KEY in the backend environment.")
     message = body.message.strip()
     if not message:
         raise HTTPException(status_code=400, detail="Message cannot be empty.")
